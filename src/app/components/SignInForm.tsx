@@ -56,7 +56,7 @@ const SignInForm = () => {
             <hr
              className="w-[50%] mx-auto my-6 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100"
             />
-            <p className='text-center'>Don't have an account? <span className='text-[#489706]'><Link href='/sign-up'>Sign Up.</Link></span></p>
+            <p className='text-center'>Don&apos;t have an account? <span className='text-[#489706]'><Link href='/sign-up'>Sign Up.</Link></span></p>
 
           </form>
         </div>
