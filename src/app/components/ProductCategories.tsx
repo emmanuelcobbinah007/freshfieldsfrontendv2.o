@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import fishImg from '../../assets/images/ProductCategories/Fish.png'
 import meatImg from '../../assets/images/ProductCategories/Meat.png'
 import fruitImg from '../../assets/images/ProductCategories/Fruits.png'
@@ -12,8 +12,8 @@ import { StaticImageData } from 'next/image'
 const ProductCategories = () => {
   return (
     <div className='w-[90%] md:w-[80%] mx-auto pt-10'>
-        <h1 className='font-semibold text-3xl px-4 text-center'>What We Offer</h1>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-10'>
+        <h1 className='font-semibold text-lg sm:text-2xl md:text-3xl px-4 text-center'>What We Offer</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-4 md:py-10'>
             <div className='flex flex-col items-center p-3 hover:cursor-pointer hover:shadow-lg duration-300 rounded-lg hover:scale-105'>
                 <img src={(meatImg as StaticImageData).src} className='w-[75%]' alt='meat' />
                 <h1 className='text-xl font-semibold text-center mt-5'>Fresh Meat</h1>   
