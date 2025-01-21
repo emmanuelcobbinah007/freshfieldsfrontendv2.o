@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import logo from '../../assets/images/Logo.png'
 import Link from 'next/link';
-import { StaticImageData } from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { CiSearch, CiHeart, CiUser, CiShoppingBasket } from "react-icons/ci";
 import { HiMenu, HiX } from "react-icons/hi";
 
@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className='w-[90%] md:w-[80%] mx-auto'>
         <div className='flex justify-between items-center py-4'>
           <Link href='/' passHref>
-            <img src={(logo as StaticImageData).src} alt='logo' className='h-7' />
+            <Image src={logo as StaticImageData} alt='logo' className='h-7 hover:scale-105 duration-300 w-[175px]' />
           </Link>
           <div className='hidden md:flex items-center'>
             <Link href='/' passHref>
