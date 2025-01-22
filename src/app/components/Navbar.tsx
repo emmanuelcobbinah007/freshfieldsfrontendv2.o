@@ -52,12 +52,12 @@ const Navbar = () => {
           </div>
         </div>
         <div className={`fixed top-0 right-0 h-full bg-white shadow-lg transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden w-1/2 p-4`}>
-          <div className='flex justify-end'>
+          <div className='flex justify-end mt-4'>
             <button onClick={toggleMenu}>
               <HiX size={27} />
             </button>
           </div>
-          <div className='flex flex-col items-center space-y-4 mt-4'>
+          <div className='flex flex-col items-center space-y-4 mt-20'>
             <Link href='/' passHref>
               <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Home</p>
             </Link>
@@ -68,11 +68,14 @@ const Navbar = () => {
             <Link href='/aboutus' passHref>
             <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>About Us</p>
             </Link>
+            <hr
+      className="w-[50%] mx-auto my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100"
+    />
             <div className='flex items-center py-2'>
               <CiSearch size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
               <CiHeart size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
               <Link href='/sign-in' passHref>
-                <CiUser size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
+                <CiUser onClick={closeMenu} size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
               </Link>
               <CiShoppingBasket size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
             </div>
