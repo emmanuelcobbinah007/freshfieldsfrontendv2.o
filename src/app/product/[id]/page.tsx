@@ -8,7 +8,7 @@ const ProductPage = () => {
   const [productId, setProductId] = useState<string | null>(null);
 
   useEffect(() => {
-    const id = params.id;
+    const id = Array.isArray(params.id) ? params.id[0] : params.id;
     if (id) {
       setProductId(id);
     }
