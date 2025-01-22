@@ -25,7 +25,9 @@ const Navbar = () => {
             <Link href='/' passHref>
               <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>Home</p>
             </Link>
+            <Link href='/products' passHref>
             <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>Shop</p>
+            </Link>
             <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>Work With Us</p>
             <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>About Us</p>
           </div>
@@ -53,7 +55,9 @@ const Navbar = () => {
             <Link href='/' passHref>
               <p className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Home</p>
             </Link>
+            <Link href='/products' passHref>
             <p className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Shop</p>
+            </Link>
             <p className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Work With Us</p>
             <p className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>About Us</p>
             <div className='flex items-center py-2'>
