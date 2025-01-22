@@ -57,11 +57,11 @@ const AboutUs = () => {
         <h1 className='text-2xl md:text-3xl font-bold text-center mb-6 text-[#489706]'>Testimonials</h1>
         <div className='flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4'>
           <div className='bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-1/3'>
-            <p className='text-base md:text-lg text-gray-700'>"Fresh Fields has the best quality products. I am very satisfied with their service!"</p>
+            <p className='text-base md:text-lg text-gray-700'>&quot;Fresh Fields has the best quality products. I am very satisfied with their service!&quot;</p>
             <p className='text-right text-gray-500 mt-4'>- Happy Customer</p>
           </div>
           <div className='bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-1/3'>
-            <p className='text-base md:text-lg text-gray-700'>"I love the freshness of the products. Highly recommend Fresh Fields!"</p>
+            <p className='text-base md:text-lg text-gray-700'>&quot;I love the freshness of the products. Highly recommend Fresh Fields!&quot;</p>
             <p className='text-right text-gray-500 mt-4'>- Satisfied Client</p>
           </div>
         </div>
