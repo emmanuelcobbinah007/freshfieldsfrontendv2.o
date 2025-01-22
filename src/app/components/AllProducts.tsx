@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import meatImg from '../../assets/images/ProductCategories/Meat.png'
+import { StaticImageData } from 'next/image'
 import fishImg from '../../assets/images/ProductCategories/Fish.png'
 import fruitImg from '../../assets/images/ProductCategories/Fruits.png'
 import herbImg from '../../assets/images/ProductCategories/Herb.png'
