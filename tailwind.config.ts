@@ -10,6 +10,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        Playfair: ['Playfair Display', 'serif'],
       },
       colors: {
         background: "var(--background)",

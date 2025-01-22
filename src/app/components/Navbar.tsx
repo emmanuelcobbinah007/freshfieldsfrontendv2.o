@@ -65,7 +65,9 @@ const Navbar = () => {
               <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Shop</p>
             </Link>
             <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Work With Us</p>
+            <Link href='/aboutus' passHref>
             <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>About Us</p>
+            </Link>
             <div className='flex items-center py-2'>
               <CiSearch size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
               <CiHeart size={27} className='mx-[5px] hover:bg-gray-200 cursor-pointer rounded-[50%] p-1 duration-300' />
