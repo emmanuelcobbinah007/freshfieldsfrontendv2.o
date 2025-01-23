@@ -11,6 +11,7 @@ import legumeImg from '../../assets/images/ProductCategories/Legumes.png';
 import oilImg from '../../assets/images/ProductCategories/Oil.png';
 import tuberImg from '../../assets/images/ProductCategories/Tuber.png';
 import veggiesImg from '../../assets/images/ProductCategories/Veggies.png';
+import { ClipLoader } from 'react-spinners';
 
 interface Product {
   id: string;
@@ -146,7 +147,7 @@ const ProductPage = () => {
     return <div className='flex justify-center items-center h-screen'>
       <div className='text-center'>
         <div className='loader'></div>
-        <p className='text-lg text-gray-700 mt-4'>Loading...</p>
+        <ClipLoader size={50} color='#489706'/>
       </div>
     </div>;
   }
