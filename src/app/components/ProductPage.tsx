@@ -228,7 +228,7 @@ const ProductPage = () => {
               key={index}
               className="bg-white p-6 rounded-lg shadow-md border border-gray-200"
             >
-              <p className="text-lg text-gray-700">" {review.comment} "</p>
+              <p className="text-lg text-gray-700">&ldquo; {review.comment} &ldquo;</p>
               <p className="text-right text-gray-500 mt-2">- {review.user}</p>
             </div>
           ))}
