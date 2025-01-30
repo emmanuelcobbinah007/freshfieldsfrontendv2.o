@@ -1,13 +1,15 @@
-import React from 'react'
-import Link from 'next/link'
-import meatImg from '../../assets/images/ProductCategories/Meat.png'
-import fishImg from '../../assets/images/ProductCategories/Fish.png'
-import fruitImg from '../../assets/images/ProductCategories/Fruits.png'
-import herbImg from '../../assets/images/ProductCategories/Herb.png'
-import legumeImg from '../../assets/images/ProductCategories/Legumes.png'
-import oilImg from '../../assets/images/ProductCategories/Oil.png'
-import tuberImg from '../../assets/images/ProductCategories/Tuber.png'
-import veggiesImg from '../../assets/images/ProductCategories/Veggies.png'
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import veggiesImg from '../../assets/images/ProductCategories/Veggies.png';
+import meatImg from '../../assets/images/ProductCategories/Meat.png';
+import fishImg from '../../assets/images/ProductCategories/Fish.png';
+import fruitImg from '../../assets/images/ProductCategories/Fruits.png';
+import herbImg from '../../assets/images/ProductCategories/Herb.png';
+import legumeImg from '../../assets/images/ProductCategories/Legumes.png';
+import oilImg from '../../assets/images/ProductCategories/Oil.png';
+import tuberImg from '../../assets/images/ProductCategories/Tuber.png';
 
 const productCategories = [
   { id: 1, name: 'Meat', image: meatImg },
@@ -27,8 +29,8 @@ const ProductCategories = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-4'>
         {productCategories.map((category) => (
           <Link href={`/category/${category.id}`} passHref key={category.id}>
-            <div className='flex flex-col items-center'>
-              <img src={category.image.src} className='w-[75%]' alt={category.name} />
+            <div className='flex flex-col items-center transform transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-lg'>
+              <img src={category.image.src} className='w-[75%] rounded-t-lg' alt={category.name} />
               <h2 className='text-lg font-semibold mt-2'>{category.name}</h2>
             </div>
           </Link>
@@ -38,4 +40,4 @@ const ProductCategories = () => {
   )
 }
 
-export default ProductCategories
+export default ProductCategories;
