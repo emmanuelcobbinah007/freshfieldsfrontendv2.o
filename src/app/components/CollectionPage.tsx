@@ -148,7 +148,7 @@ const CollectionPage = () => {
 
   return (
     <div className='w-[90%] md:w-[80%] mx-auto pt-10'>
-      <h1 className='font-semibold text-lg sm:text-2xl md:text-3xl px-4 text-center'>Collection {category.name}</h1>
+      <h1 className='font-semibold text-lg sm:text-2xl md:text-3xl px-4 text-center'>{category.name}</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-4'>
         {Array.from({ length: 9 }).map((_, index) => (
           <div key={index} className='flex flex-col items-center transform transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-lg p-4 bg-white'>
