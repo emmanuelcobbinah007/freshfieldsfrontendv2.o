@@ -32,7 +32,9 @@ const Navbar = () => {
             <Link href='/products' passHref>
               <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>Shop</p>
             </Link>
-            <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>Work With Us</p>
+            <Link href='/workwithus' passHref>
+              <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>Work With Us</p>
+            </Link>
             <Link href='/aboutus' passHref>
             <p className='px-3 flex items-center hover:text-[#489706] hover:cursor-pointer duration-300 hover:scale-105'>About Us</p>
             </Link>
