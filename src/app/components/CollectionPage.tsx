@@ -11,7 +11,19 @@ import herbImg from '../../assets/images/ProductCategories/Herb.png';
 import legumeImg from '../../assets/images/ProductCategories/Legumes.png';
 import oilImg from '../../assets/images/ProductCategories/Oil.png';
 import tuberImg from '../../assets/images/ProductCategories/Tuber.png';
+import { StaticImageData } from 'next/image';
 import { FaShoppingCart } from 'react-icons/fa';
+
+type Category = {
+  id: string;
+  name: string;
+  description: string;
+  fullDescription: string;
+  price: number;
+  image: StaticImageData;
+  features: string[];
+  reviews: { user: string; comment: string }[];
+};
 
 const productCategories: { [key: string]: Category } = {
   '1': {
@@ -120,17 +132,6 @@ const productCategories: { [key: string]: Category } = {
   },
 };
 
-type Category = {
-  id: string;
-  name: string;
-  description: string;
-  fullDescription: string;
-  price: number;
-  image: any;
-  features: string[];
-  reviews: { user: string; comment: string }[];
-};
-
 const CollectionPage = () => {
   const params = useParams();
   const [category, setCategory] = useState<Category | null>(null);
@@ -141,6 +142,7 @@ const CollectionPage = () => {
       setCategory(productCategories[id]);
     }
   }, [params]);
+
 
   if (!category) {
     return <div>Loading...</div>;
