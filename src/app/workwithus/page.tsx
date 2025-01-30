@@ -35,7 +35,7 @@ const WorkWithUs = () => {
             animate={{ opacity: 1 }}
             className="text-green-600 text-center text-lg font-medium"
           >
-            ✅ Thank you! We'll get back to you soon.
+            ✅ Thank you! We&apos;ll get back to you soon.
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">

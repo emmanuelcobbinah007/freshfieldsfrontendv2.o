@@ -66,7 +66,9 @@ const Navbar = () => {
             <Link href='/products' passHref>
               <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Shop</p>
             </Link>
+            <Link href='/workwithus' passHref>
             <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>Work With Us</p>
+            </Link>
             <Link href='/aboutus' passHref>
             <p onClick={closeMenu} className='py-2 px-4 w-full text-center hover:text-[#489706] hover:cursor-pointer duration-300 font-semibold'>About Us</p>
             </Link>
