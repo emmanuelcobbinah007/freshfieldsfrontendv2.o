@@ -26,9 +26,6 @@ const ProductPage = () => {
 
   useEffect(() => {
     const id = Array.isArray(params.id) ? params.id[0] : params.id;
-    // if (id && products[id]) {
-    //   setProduct(productData[id]);
-    // }
 
     const product = products.find((product) => product.id === id);
     if (product) {
@@ -80,9 +77,12 @@ const ProductPage = () => {
           <p className="text-2xl font-semibold text-gray-900 mt-4">
             ₵{product.price.toFixed(2)}
           </p>
-          <div className="flex items-center mt-6">
+            <div className="flex items-center mt-6">
             <button className="bg-[#489706] text-white px-6 py-3 rounded-lg hover:bg-[#367a04] transition duration-300 mr-4 shadow-md">
               Add to Cart
+            </button>
+            <button className="bg-[#ff5722] text-white px-6 py-3 rounded-lg hover:bg-[#e64a19] transition duration-300 mr-4 shadow-md">
+              Buy Now
             </button>
             <button
               onClick={handleDecrease}
@@ -99,7 +99,7 @@ const ProductPage = () => {
             >
               +
             </button>
-          </div>
+            </div>
 
           {/* Full Description */}
           <div className="mt-10">
