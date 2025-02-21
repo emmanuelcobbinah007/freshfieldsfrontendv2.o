@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useAuth } from "../context/authContext";
 import { useRouter } from "next/navigation";
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
 
 const SignUpForm = () => {

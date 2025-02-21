@@ -10,7 +10,7 @@ import {
   User, 
   createUserWithEmailAndPassword 
 } from "firebase/auth";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 // Define the AuthContext type
 interface AuthContextType {
