@@ -27,7 +27,7 @@ const SignUpForm = () => {
     }
 
     signUp(email, password)
-      .then((user) => {
+      .then(() => {
         toast.success('Sign up successful!');
         router.push('/');
       })
