@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useProducts } from "../context/ProductContext";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { RiAdminLine } from "react-icons/ri";
 import { GiFruitBowl } from "react-icons/gi";
@@ -8,6 +9,11 @@ import { IoBagOutline } from "react-icons/io5";
 import Link from "next/link";
 
 const Dashboard = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const { products } = useProducts();
+
   return (
     <ProtectedRoute>
       <div className="bg-[#FFC1070F]">
@@ -31,6 +37,81 @@ const Dashboard = () => {
               View Orders
             </button>
           </div>
+
+          <div className="w-[90%] mx-auto">
+            <h2 className="text-lg font-semibold mt-10 mb-5 text-center">
+              All Products
+            </h2>
+            <table className="w-full mt-2">
+              <thead>
+                <tr className="bg-[#489706] text-white">
+                  <th className="py-2">Category</th>
+                  <th className="py-2">Product Name</th>
+                  <th className="py-2">Description</th>
+                  <th className="py-2">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.length > 0 ? (
+                  products.map((product) => (
+                    <tr key={product.id} className="text-center">
+                      <td className="py-2">{product.category}</td>
+                      <td className="py-2">{product.name}</td>
+                      <td className="py-2">{product.description}</td>
+                      <td className="py-2">${product.price}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={4} className="text-center py-4">
+                      No products available.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {/* <div>
+
+          Order Table
+
+            <h2 className="text-lg font-semibold mt-5">Recent Orders</h2>
+            <table className="w-full mt-2">
+              <thead>
+                <tr className="bg-[#489706] text-white">
+                  <th className="py-2">Order ID</th>
+                  <th className="py-2">Customer Name</th>
+                  <th className="py-2">Product</th>
+                  <th className="py-2">Quantity</th>
+                  <th className="py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="text-center">
+                  <td className="py-2">1</td>
+                  <td className="py-2">John Doe</td>
+                  <td className="py-2">Apple</td>
+                  <td className="py-2">5</td>
+                  <td className="py-2">Pending</td>
+                </tr>
+                <tr>
+                  <td className="py-2">2</td>
+                  <td className="py-2">Jane Doe</td>
+                  <td className="py-2">Banana</td>
+                  <td className="py-2">10</td>
+                  <td className="py-2">Delivered</td>
+                </tr>
+                <tr>
+                  <td className="py-2">3</td>
+                  <td className="py-2">Sam Smith</td>
+                  <td className="py-2">Orange</td>
+                  <td className="py-2">8</td>
+                  <td className="py-2">Pending</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> */}
         </div>
       </div>
     </ProtectedRoute>
