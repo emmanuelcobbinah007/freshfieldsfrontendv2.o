@@ -1,12 +1,13 @@
 import React from 'react'
 import Logo from '../../assets/images/Logo -lg.png'
 import { StaticImageData } from 'next/image'
+import Image from 'next/image'
 
 const AboutUs = () => {
   return (
     <div className='w-[90%] md:w-[80%] mx-auto md:pt-10'>
       <div className='hidden md:flex justify-center md:justify-center'>
-        <img src={(Logo as StaticImageData).src} className='w-[70%] md:w-[55%] mx-auto' alt='logo' />
+        <Image src={(Logo as StaticImageData).src} className='w-[70%] md:w-[55%] mx-auto' alt='logo' />
       </div>
 
       <div className='mt-10'>

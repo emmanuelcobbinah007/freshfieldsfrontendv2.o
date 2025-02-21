@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import logo from '../../assets/images/Logo-Dark.png'
 import { StaticImageData } from 'next/image'
 
@@ -10,7 +11,7 @@ const Footer = () => {
             <div className='grid grid-cols-1 md:grid-cols-3 py-10'>
                 <div className='col-span-1 my-6'>
                     <Link href='/' passHref>
-                        <img src={(logo as StaticImageData).src} alt='logo' className='h-7 my-2' />
+                        <Image src={(logo as StaticImageData).src} alt='logo' className='h-7 my-2' />
                     </Link>
                     <p className='text-xs text-gray-400 py-2'>Harvesting Freshness, Delivering Quality</p>
                 </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FaShoppingCart } from 'react-icons/fa'
 import meatImg from '../../assets/images/ProductCategories/Meat.png'
@@ -31,7 +32,7 @@ const AllProducts = () => {
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-4'>
           {products.map((product) => (
             <div key={product.id} className='flex flex-col items-center px-3 hover:cursor-pointer hover:shadow-lg duration-300 rounded-lg hover:scale-105'>
-              <img src={product.image.src} className='w-[75%]' alt={product.name} />
+              <Image src={product.image.src} className='w-[75%]' alt={product.name} />
               <div className='flex justify-between items-center w-full mt-5'>
                 <h1 className='text-lg font-semibold'>{product.name}</h1>
                 <p className='text-lg font-bold'>₵{product.price.toFixed(2)} / kg</p>

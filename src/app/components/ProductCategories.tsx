@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 import veggiesImg from '../../assets/images/ProductCategories/Veggies.png';
 import meatImg from '../../assets/images/ProductCategories/Meat.png';
 import fishImg from '../../assets/images/ProductCategories/Fish.png';
@@ -30,7 +31,7 @@ const ProductCategories = () => {
         {productCategories.map((category) => (
           <Link href={`/category/${category.id}`} passHref key={category.id}>
             <div className='flex flex-col items-center transform transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-lg'>
-              <img src={category.image.src} className='w-[75%] rounded-t-lg' alt={category.name} />
+              <Image src={category.image.src} className='w-[75%] rounded-t-lg' alt={category.name} />
               <h2 className='text-lg font-semibold mt-2'>{category.name}</h2>
             </div>
           </Link>
