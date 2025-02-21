@@ -11,7 +11,9 @@ const Footer = () => {
             <div className='grid grid-cols-1 md:grid-cols-3 py-10'>
                 <div className='col-span-1 my-6'>
                     <Link href='/' passHref>
-                        <Image src={(logo as StaticImageData).src} alt='logo' className='h-7 my-2' />
+                        <Image src={(logo as StaticImageData).src} alt='logo' className='h-7 my-2' 
+                        width={200} // Replace with actual width
+                        height={120} />
                     </Link>
                     <p className='text-xs text-gray-400 py-2'>Harvesting Freshness, Delivering Quality</p>
                 </div>
