@@ -5,28 +5,9 @@ import { useProducts } from "../context/ProductContext";
 import Image from "next/image";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
-// import meatImg from "../../assets/images/ProductCategories/Meat.png";
-// import fishImg from "../../assets/images/ProductCategories/Fish.png";
-// import fruitImg from "../../assets/images/ProductCategories/Fruits.png";
-// import herbImg from "../../assets/images/ProductCategories/Herb.png";
-// import legumeImg from "../../assets/images/ProductCategories/Legumes.png";
-// import oilImg from "../../assets/images/ProductCategories/Oil.png";
-// import tuberImg from "../../assets/images/ProductCategories/Tuber.png";
-// import veggiesImg from "../../assets/images/ProductCategories/Veggies.png";
 
 const AllProducts = () => {
   const { products } = useProducts();
-
-  // const products = [
-  //   { id: "1", name: "Fresh Meat", price: 24.0, image: meatImg },
-  //   { id: "2", name: "Fresh Fish", price: 20.0, image: fishImg },
-  //   { id: "3", name: "Fresh Fruits", price: 15.0, image: fruitImg },
-  //   { id: "4", name: "Fresh Herbs", price: 6.0, image: herbImg },
-  //   { id: "5", name: "Fresh Legumes", price: 10.0, image: legumeImg },
-  //   { id: "6", name: "Cooking Oil", price: 30.0, image: oilImg },
-  //   { id: "7", name: "Fresh Tubers", price: 12.0, image: tuberImg },
-  //   { id: "8", name: "Fresh Veggies", price: 10.0, image: veggiesImg },
-  // ];
 
   return (
     <div className="">
@@ -40,9 +21,9 @@ const AllProducts = () => {
             >
               <Image
                 src={product.imageUrl}
-                className="w-[75%]"
+                className="w-[75%] rounded-lg"
                 alt={product.name}
-                width={500} // Replace with actual width
+                width={500} 
                 height={300}
               />
               <div className="flex justify-between items-center w-full mt-5">
@@ -52,8 +33,7 @@ const AllProducts = () => {
                 </p>
               </div>
               <p className="text-center mt-2">
-                High-quality fresh {product.name.toLowerCase()} sourced from
-                local farms.
+                {product.description}
               </p>
               <div className="flex space-x-2 mt-3 pb-6">
                 <button className="flex justify-center items-center bg-[#489706] text-white px-4 py-2 rounded hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200">
