@@ -14,7 +14,6 @@ const SignInForm = () => {
     e.preventDefault();
     try {
       await signIn(email, password);
-      toast.success('Signed in successfully!');
       setEmail('');
       setPassword('');
     } catch (error) {

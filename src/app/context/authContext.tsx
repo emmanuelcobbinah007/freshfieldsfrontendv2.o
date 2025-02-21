@@ -117,25 +117,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signUp = async (email: string, password: string, name: string, phoneNumber: string, address: string) => {
     try {
-      // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      // const user = userCredential.user;
-      // setUser(user);
-      console.log(email, password, name, phoneNumber, address); // Debugging
-      // await setDoc(doc(db, "users", user.uid), { 
-      //   role: "admin",
-      //   name: name,
-      //   phoneNumber: phoneNumber,
-      //   email: email,
-      //   address: address,
-      //   createdAt: new Date().toISOString(),
-      // });
+      const cleanedEmail = email.trim(); 
+      console.log(cleanedEmail)// Trim spaces
+      const userCredential = await createUserWithEmailAndPassword(auth, cleanedEmail, password);
+      const user = userCredential.user;
+      setUser(user);
+  
+      await setDoc(doc(db, "users", user.uid), { 
+        role: "user",
+        name: name,
+        phoneNumber: phoneNumber,
+        email: cleanedEmail,
+        address: address,
+        createdAt: new Date().toISOString(),
+      });
+  
       toast.success("Account created successfully!");
-      // return user;
+      return user;
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "An unknown error occurred");
       throw error;
     }
   };
+  
 
   const logout = async () => {
     try {

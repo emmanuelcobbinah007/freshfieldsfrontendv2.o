@@ -26,12 +26,15 @@ const SignUpForm = () => {
     }
 
     try {
-      const result = await signUp(name, email, password, phone, address);
-      if (result.success) {
-        toast.success("Sign up successful!");
+      const result = await signUp(email, password, name, phone, address);
+      if (result && 'success' in result && result.success) {
         router.push("/");
       } else {
-        toast.error(result.error);
+        if (result && 'error' in result) {
+          toast.error(typeof result.error === 'string' ? result.error : "An unknown error occurred.");
+        } else {
+          toast.error("An unknown error occurred.");
+        }
       }
     } catch (error) {
       toast.error("An error occurred during sign-up.");
