@@ -3,14 +3,13 @@
 import React, { useState } from 'react';
 import { useAuth } from "../context/authContext";
 import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Link from 'next/link';
 
 const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState(null);
   const router = useRouter();
 
   const { signUp } = useAuth();
