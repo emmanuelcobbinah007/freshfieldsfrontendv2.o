@@ -38,13 +38,13 @@ const AllProducts = () => {
               key={product.id}
               className="flex flex-col items-center px-3 hover:cursor-pointer hover:shadow-lg duration-300 rounded-lg hover:scale-105"
             >
-              {/* <Image
+              <Image
                 src={product.imageUrl}
                 className="w-[75%]"
                 alt={product.name}
                 width={500} // Replace with actual width
                 height={300}
-              /> */}
+              />
               <div className="flex justify-between items-center w-full mt-5">
                 <h1 className="text-lg font-semibold">{product.name}</h1>
                 <p className="text-lg font-bold">
