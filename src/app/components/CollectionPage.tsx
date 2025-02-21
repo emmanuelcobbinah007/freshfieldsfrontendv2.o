@@ -143,7 +143,6 @@ const CollectionPage = () => {
     }
   }, [params]);
 
-
   if (!category) {
     return <div>Loading...</div>;
   }
@@ -155,19 +154,21 @@ const CollectionPage = () => {
         {Array.from({ length: 9 }).map((_, index) => (
           <div key={index} className='flex flex-col items-center transform transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-lg p-4 bg-white'>
             <Link href={`/product/${category.id}`} passHref>
-              <img src={category.image.src} className='w-[75%] rounded-t-lg cursor-pointer' alt={category.name} />
+              <img src={category.image.src} className='w-[75%] rounded-t-lg cursor-pointer z-0' alt={category.name} />
             </Link>
             <h2 className='text-lg font-semibold mt-2'>{category.name}</h2>
             <p className='text-sm text-gray-600 mt-1'>{category.description}</p>
             <p className='text-sm text-gray-800 mt-1'>${category.price.toFixed(2)}</p>
             <div className='flex space-x-2 mt-3 pb-6'>
-                <button className='flex justify-center items-center bg-[#489706] text-white px-4 py-2 rounded hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200'>
-                  <FaShoppingCart className='' />
-                </button>
-                <Link href={`/product/${category.id}`} passHref>
-                  <button className='bg-[#FFC1070F] text-black px-4 py-2 rounded border border-[#489706]'>View Product</button>
-                </Link>
-              </div>
+              <button
+                className='flex justify-center items-center bg-[#489706] text-white px-4 py-2 rounded hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200'
+              >
+                <FaShoppingCart />
+              </button>
+              <Link href={`/product/${category.id}`} passHref>
+                <button className='bg-[#FFC1070F] text-black px-4 py-2 rounded border border-[#489706]'>View Product</button>
+              </Link>
+            </div>
           </div>
         ))}
       </div>

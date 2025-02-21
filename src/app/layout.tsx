@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
+import { AuthProvider } from "./context/authContext"; 
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,8 +30,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-poppins`}
       >
         <div className="bg-[#FFC1070F] h-[40px]"></div>
+        <AuthProvider> 
         <Navbar />
         {children}
+        </AuthProvider>
       </body>
     </html>
   );

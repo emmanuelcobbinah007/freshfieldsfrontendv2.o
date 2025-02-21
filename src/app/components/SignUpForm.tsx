@@ -1,23 +1,48 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useAuth } from "../context/authContext";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
 
 const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(null);
+  const router = useRouter();
+
+  const { signUp } = useAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle sign-up logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+      return;
+    }
+
+    signUp(email, password)
+      .then((user) => {
+        toast.success('Sign up successful!');
+        router.push('/');
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+
+
+
   };
 
   return (
     <div className='bg-[#FFC1070F] h-[100vh] flex items-center justify-center p-4'>
+      <ToastContainer />
       <form onSubmit={handleSubmit} className='bg-[FFC1070F] p-6 h-auto rounded md:shadow-2xl md:w-[35%]'>
         <h2 className='text-2xl mb-4 text-center font-semibold'>Sign Up</h2>
         <div className='mb-4'>
