@@ -23,6 +23,7 @@ interface AuthContextType {
   signInWithGoogle: () => Promise<void>;
   signUp: (email: string, password: string, name: string, phoneNumber: string, address: string) => Promise<User | void>;
   logout: () => Promise<void>;
+  signUpAdmin: (email: string, password: string, name: string, phoneNumber: string, address: string) => Promise<User | void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -139,6 +140,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw error;
     }
   };
+
+  const signUpAdmin = async (email: string, password: string, name: string, phoneNumber: string, address: string) => {
+    try {
+      const cleanedEmail = email.trim(); 
+      console.log(cleanedEmail)// Trim spaces
+      const userCredential = await createUserWithEmailAndPassword(auth, cleanedEmail, password);
+      const user = userCredential.user;
+      setUser(user);
+  
+      await setDoc(doc(db, "users", user.uid), { 
+        role: "admin",
+        name: name,
+        phoneNumber: phoneNumber,
+        email: cleanedEmail,
+        address: address,
+        createdAt: new Date().toISOString(),
+      });
+  
+      toast.success("Admin added successfully!");
+      return user;
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "An unknown error occurred");
+      throw error;
+    }
+  };
   
 
   const logout = async () => {
@@ -154,7 +180,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, userRole, loading, signIn, signInWithGoogle, signUp, logout }}>
+    <AuthContext.Provider value={{ user, userRole, loading, signIn, signInWithGoogle, signUp, signUpAdmin, logout }}>
       {children}
     </AuthContext.Provider>
   );

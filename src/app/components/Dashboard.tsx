@@ -20,10 +20,12 @@ const Dashboard = () => {
             Admin Dashboard
           </h1>
           <div className="flex justify-center gap-4 flex-wrap">
-            <button className="bg-[#489706] text-white px-5 mt-0 py-2 flex rounded-lg justify-center items-center hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200">
+          <Link href="/dashboard/add-admin" passHref>
+          <button className="bg-[#489706] text-white px-5 mt-0 py-2 flex rounded-lg justify-center items-center hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200">
               <RiAdminLine className="text-lg mx-1" />
               New Admin
             </button>
+          </Link>
             <Link href="/dashboard/add-product" passHref>
               <button className="bg-[#489706] text-white px-5 mt-0 py-2 flex rounded-lg justify-center items-center hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200">
                 <GiFruitBowl className="text-lg mx-1" /> Add Product

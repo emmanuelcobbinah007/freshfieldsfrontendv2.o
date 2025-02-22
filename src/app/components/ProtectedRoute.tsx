@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/authContext";
+import { ClipLoader } from "react-spinners";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, userRole, loading } = useAuth();
@@ -22,7 +23,14 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }, [user, userRole, loading, router]);
 
   if (loading || !user || !roleChecked) {
-    return <p>Loading...</p>;
+    return (
+          <div className="flex justify-center items-center h-[85vh] bg-[#FFC1070F]">
+            <div className="text-center">
+              <div className="loader"></div>
+              <ClipLoader size={50} color="#489706" />
+            </div>
+          </div>
+    );
   }
 
   return <>{children}</>;

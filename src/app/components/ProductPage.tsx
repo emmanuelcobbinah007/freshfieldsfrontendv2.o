@@ -57,7 +57,8 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="w-[90%] md:w-[80%] mx-auto md:pt-10 bg-gradient-to-b from-white to-gray-50 p-6 rounded-lg shadow-lg">
+    <div className="min-h-screen">
+      <div className="bg-[#FFC1070F] w-[100%] md:w-[80%] mx-auto md:pt-10 md:mt-6 md:mb-16 md:pb-16 p-6 rounded-lg shadow-xl">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
         {/* Product Image */}
         <div className="w-full md:w-1/2">
@@ -140,6 +141,7 @@ const ProductPage = () => {
           ))}
         </div>
       </div> */}
+    </div>
     </div>
   );
 };
