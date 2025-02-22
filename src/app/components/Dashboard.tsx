@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useProducts } from "../context/ProductContext";
+import { useAuth } from "../context/authContext";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { RiAdminLine } from "react-icons/ri";
 import { GiFruitBowl } from "react-icons/gi";
@@ -11,6 +12,11 @@ import Link from "next/link";
 const Dashboard = () => {
 
   const { products } = useProducts();
+  const { fetchAdmins, admins } = useAuth();
+
+  useEffect(() => {
+    fetchAdmins();
+  }, []);
 
   return (
     <ProtectedRoute>
@@ -42,32 +48,60 @@ const Dashboard = () => {
             <h2 className="text-lg font-semibold mb-5 text-center">
               All Products
             </h2>
-            <table className="w-full mt-2">
+            <table className="w-[90%] mx-auto mt-2">
               <thead>
-                <tr className="bg-[#489706] text-white">
-                  <th className="py-2 px-4">Category</th>
-                  <th className="py-2 px-4">Product Name</th>
-                  <th className="py-2 px-4">Description</th>
-                  <th className="py-2 px-4">Price</th>
-                </tr>
+              <tr className="bg-[#489706] text-white">
+                <th className="py-2 px-4">Category</th>
+                <th className="py-2 px-4 w-[150px]">Product Name</th>
+                <th className="py-2 px-4">Description</th>
+                <th className="py-2 px-4">Price</th>
+              </tr>
               </thead>
               <tbody>
-                {products.length > 0 ? (
-                  products.map((product) => (
-                    <tr key={product.id} className="text-center">
-                      <td className="py-2 px-4">{product.category}</td>
-                      <td className="py-2 px-4">{product.name}</td>
-                      <td className="py-2 px-4">{product.description}</td>
-                      <td className="py-2 px-4">${product.price}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={4} className="text-center py-4">
-                      No products available.
-                    </td>
-                  </tr>
-                )}
+              {products.length > 0 ? (
+                products.map((product) => (
+                <tr key={product.id} className="text-center">
+                  <td className="py-2 px-4">{product.category}</td>
+                  <td className="py-2 px-4">{product.name}</td>
+                  <td className="py-2 px-4">{product.description}</td>
+                  <td className="py-2 px-4">GHC{product.price}</td>
+                </tr>
+                ))
+              ) : (
+                <tr>
+                <td colSpan={4} className="text-center py-4">
+                  No products available.
+                </td>
+                </tr>
+              )}
+              </tbody>
+            </table>
+
+            <h2 className="text-lg font-semibold mb-5 text-center mt-10">
+              All Admins
+            </h2>
+            <table className="w-[60%] mx-auto mt-2">
+              <thead>
+              <tr className="bg-[#489706] text-white">
+                <th className="py-2 px-4 w-[200px]">Admin Name</th>
+                <th className="py-2 px-4">Email</th>
+              </tr>
+              </thead>
+              <tbody>
+              {admins.length > 0 ? (
+                admins.map((admin) => (
+                <tr key={admin.id} className="text-center">
+                  <td className="py-2 px-4">{admin.name}</td>
+                  <td className="py-2 px-4">{admin.email}</td>
+                </tr>
+                ))
+              ) : (
+                <tr>
+                <td colSpan={3} className="text-center py-4">
+                  No admins available.
+                </td>
+                </tr>
+              )}
               </tbody>
             </table>
           </div>

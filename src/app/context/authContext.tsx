@@ -19,17 +19,20 @@ interface AuthContextType {
   user: User | null;
   userRole: string | null;
   loading: boolean;
+  admins: any[];
   signIn: (email: string, password: string) => Promise<User | void>;
   signInWithGoogle: () => Promise<void>;
   signUp: (email: string, password: string, name: string, phoneNumber: string, address: string) => Promise<User | void>;
   logout: () => Promise<void>;
   signUpAdmin: (email: string, password: string, name: string, phoneNumber: string, address: string) => Promise<User | void>;
+  fetchAdmins: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [admins, setAdmins] = useState<any[]>([]);
   const [userRole, setUserRole] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -166,6 +169,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
   
+  // Fetch admins from backend
+  const fetchAdmins = async () => {
+    try {
+      const res = await fetch("/api/admins");
+      const data = await res.json();
+      setAdmins(data);
+    } catch (error) {
+      console.error("Error fetching admins:", error);
+    }
+  };
 
   const logout = async () => {
     try {
@@ -180,7 +193,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, userRole, loading, signIn, signInWithGoogle, signUp, signUpAdmin, logout }}>
+    <AuthContext.Provider value={{ user, admins, userRole, loading, signIn, signInWithGoogle, signUp, signUpAdmin, fetchAdmins, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -193,3 +206,4 @@ export const useAuth = () => {
   }
   return context;
 };
+
