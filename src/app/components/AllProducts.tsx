@@ -11,7 +11,7 @@ const AllProducts = () => {
 
   return (
     <div className="">
-      <h1 className="font-semibold pt-6 text-lg sm:text-2xl md:text-3xl text-center"></h1>
+      <h1 className="font-semibold pt-6 text-lg sm:text-2xl md:text-3xl text-center">All Products</h1>
       <div className="w-[90%] md:w-[80%] mx-auto pt-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-4">
           {products.map((product) => (

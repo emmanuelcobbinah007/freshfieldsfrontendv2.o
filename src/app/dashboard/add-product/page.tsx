@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useProducts } from "../../context/ProductContext";
 import { useRouter } from "next/navigation";
 import { div } from "framer-motion/client";
+import { ToastContainer, toast } from "react-toastify";
 
 const Page = () => {
   const { addProduct } = useProducts();
@@ -48,8 +49,10 @@ const Page = () => {
       await addProduct(productData);
       console.log(productData); // Debugging
       router.push("/dashboard"); // Redirect to product list
+      toast.success("Product added successfully");
     } catch (err) {
       setError("Failed to add product. Try again.");
+      toast.error(error);
     } finally {
       setLoading(false);
     }
@@ -67,9 +70,10 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-[#FFC1070F]">
-      <div className="max-w-3xl mx-auto shadow-md bg-[FFC1070F] p-6 h-auto rounded md:shadow-2xl md:w-[45%]">
-        <h2 className="text-2xl font-bold mb-4">Add a New Product</h2>
+    <div className="bg-[#FFC1070F] h-auto pt-[20px] flex items-center justify-center p-4 rounded-xl">
+      <div className="max-w-3xl mx-auto shadow-md bg-[FFC1070F] p-6 pb-10 h-auto rounded-xl md:shadow-2xl md:w-[45%]">
+      <ToastContainer />
+        <h2 className="text-2xl mb-4 text-center font-semibold">Add a New Product</h2>
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
@@ -138,7 +142,7 @@ const Page = () => {
 
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-700"
+            className="bg-[#489706] w-full text-white px-5 py-2 rounded-3xl flex justify-center items-center hover:bg-[#FFC1070F] hover:font-semibold hover:text-[#489706] hover:border hover:border-[#489706] duration-200"
             disabled={loading}
           >
             {loading ? "Adding..." : "Add Product"}
