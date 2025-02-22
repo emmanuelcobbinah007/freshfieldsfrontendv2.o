@@ -31,7 +31,7 @@ const ProductCategories = () => {
       <h1 className='font-semibold text-lg sm:text-2xl md:text-3xl px-4 text-center'>What We Offer</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-4'>
         {productCategories.map((category) => (
-          <Link href={`/category/${category.id}`} passHref key={category.id}>
+          <Link href={`/category/${category.name}`} passHref key={category.id}>
             <div className='flex flex-col items-center transform transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-lg'>
               <Image src={category.image.src} className='w-[75%] rounded-lg' alt={category.name} 
               width={500} // Replace with actual width

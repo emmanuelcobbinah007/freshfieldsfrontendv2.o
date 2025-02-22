@@ -1,12 +1,12 @@
 "use client";
 
-import CollectionPage from '@/app/components/CollectionPage';
+import CategoryPage from '@/app/components/CategoryPage';
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        <CollectionPage />
+        <CategoryPage />
     </div>
   )
 }

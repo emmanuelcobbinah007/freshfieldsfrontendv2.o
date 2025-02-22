@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server";
 import {adminDB} from "../../server/firebaseAdmin";
 
-
-// Temporary in-memory storage (replace with a database)
-let products: any[] = [];
-
-
 /**
  * GET /api/products
  * Fetch all products
